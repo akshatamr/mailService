@@ -30,26 +30,14 @@ jsonFile.readFile(fileName, function(err, jsonData) {
   }
 });
  
-  var mailer   = require("mailer")
-  , username = "automataaug2018@gmail.com"
-  , password = "Auto@2018";
-  
-  mailer.send(
-  { host:           "smtp.mandrillapp.com"
-  , port:           8000
-  , to:             "autodroid2018@gmail.com"
-  , from:           "automataaug2018@gmail.com"
-  , subject:        "Green Test"
-  , body:           "Hello from eGreen!"
-  , authentication: "login"
-  , username:       username
-  , password:       password
-  }, function(err, result){
-    if(err){
-      console.log(err);
-    }
-  }
-);
+// using SendGrid's Node.js Library - https://github.com/sendgrid/sendgrid-nodejs
+var sendgrid = require("sendgrid")("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");
+var email = new sendgrid.Email();
+email.addTo("autodroid2018@gmail.com");
+email.setFrom("automataaug2018@gmail.com");
+email.setSubject("Sending eCertificate");
+email.setHtml("Hello from eGreen!");
+sendgrid.send(email);
   
   return res.json({
     //fulfillmentText: chatResponse
