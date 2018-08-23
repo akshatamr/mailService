@@ -31,11 +31,11 @@ jsonFile.readFile(fileName, function(err, jsonData) {
 });
  
 var mailer   = require("mailer")
-  , username = "automataaug2018@gmail.com"
-  , password = "Auto@2018";
+  , username = "apikey"
+  , password = "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";
   
   mailer.send(
-  { host:           "smtp.mandrillapp.com"
+  { host:           "smtp.sendgrid.net"
   , port:           25
   , to:             "autodroid2018@gmail.com"
   , from:           "automataaug2018@gmail.com"
@@ -44,12 +44,7 @@ var mailer   = require("mailer")
   , authentication: "login"
   , username:       username
   , password:       password
-  }, function(err, result){
-    if(err){
-      console.log(err);
-    }
-  }
-);
+  });
   
   return res.json({
     //fulfillmentText: chatResponse
@@ -62,3 +57,4 @@ var mailer   = require("mailer")
    
   });
 });
+
