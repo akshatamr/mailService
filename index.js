@@ -62,7 +62,3 @@ var mailer   = require("mailer")
    
   });
 });
-
-restService.listen(process.env.PORT || 25, function() {
-  console.log("Server up and listening");
-});
