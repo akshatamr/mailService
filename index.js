@@ -30,6 +30,9 @@ jsonFile.readFile(fileName, function(err, jsonData) {
   }
 });
  
+  var mailer   = require("mailer")
+  , username = "automataaug2018@gmail.com"
+  , password = "Auto@2018";
   
   return res.json({
     //fulfillmentText: chatResponse
