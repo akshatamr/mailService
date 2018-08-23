@@ -21,7 +21,7 @@ restService.post("/echo", function(req, res) {
   
   mailer.send(
   { host:           "smtp.mandrillapp.com"
-  , port:           8000
+  , port:           587
   , to:             "autodroid2018@gmail.com"
   , from:           "automataaug2018@gmail.com"
   , subject:        "Green Test"
@@ -46,6 +46,6 @@ function myData() {
    chatResponse=chatResponse+"hello";
 } 
 
-restService.listen(process.env.PORT || 8000, function() {
+restService.listen(process.env.PORT || 587, function() {
   console.log("Server up and listening");
 });
