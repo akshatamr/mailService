@@ -1,6 +1,22 @@
 "use strict";
 
-var mailer   = require("mailer")
+const express = require("express");
+const bodyParser = require("body-parser");
+
+const restService = express();
+
+restService.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
+
+restService.use(bodyParser.json());
+
+restService.post("/echo", function(req, res) {
+ 
+  
+  var mailer   = require("mailer")
   , username = "automataaug2018@gmail.com"
   , password = "Auto@2018";
 
@@ -20,3 +36,10 @@ mailer.send(
     }
   }
 );
+   
+  });
+});
+
+restService.listen(process.env.PORT || 8000, function() {
+  console.log("Server up and listening");
+});
