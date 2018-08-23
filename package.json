@@ -2,9 +2,9 @@
   "name": "cloudOperations", 
   "version": "1.0.0", 
   "description": "cloud Operations for Webhook", 
-  "main": "mailer.js", 
+  "main": "index.js", 
   "scripts": { 
-    "start": "node mailer.js" 
+    "start": "node index.js" 
   }, 
   "author": "Akshata Madhusudan", 
   "dependencies": { 
