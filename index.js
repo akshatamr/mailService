@@ -16,20 +16,6 @@ restService.use(bodyParser.json());
 restService.post("/echo", function(req, res) {
  
 var action = req.body.queryResult.action;
-var chatResponse = "";
-      
-var jsonFile = require('jsonfile')
-var fileName = 'airline.json'
-
-jsonFile.readFile(fileName, function(err, jsonData) {
-  if (err) throw err;
-  for (var i = 0; i < jsonData.length; ++i) {
-
-  chatResponse = jsonData[i].name;
-  //console.log("Emp Name: "+jsonData[i].place);
-  }
-});
- 
 var mailer   = require("mailer")
   , username = "apikey"
   , password = "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";
@@ -56,6 +42,8 @@ var mailer   = require("mailer")
     endDate: endDate*/
    
   });
+  
+});  
 });
 
 
