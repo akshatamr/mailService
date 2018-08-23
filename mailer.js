@@ -1,3 +1,5 @@
+"use strict";
+
 var mailer   = require("mailer")
   , username = "automataaug2018@gmail.com"
   , password = "Auto@2018";
