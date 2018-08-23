@@ -16,26 +16,49 @@ restService.use(bodyParser.json());
 restService.post("/echo", function(req, res) {
  
   
-  var mailer   = require("mailer")
-  , username = "automataaug2018@gmail.com"
-  , password = "Auto@2018";
-
-mailer.send(
-  { host:           "smtp.mandrillapp.com"
-  , port:           25
-  , to:             "autodroid2018@gmail.com"
-  , from:           "automataaug2018@gmail.com"
-  , subject:        "Green Test"
-  , body:           "Hello from eGreen!"
-  , authentication: "login"
-  , username:       username
-  , password:       password
-  }, function(err, result){
-    if(err){
-      console.log(err);
-    }
-  }
-);
+  var action = request.body.queryResult.action;
+      
+  
+  var departCity =
+    req.body.queryResult &&
+    req.body.queryResult.parameters &&
+    req.body.queryResult.parameters.departCity
+      ? req.body.queryResult.parameters.departCity
+      : "Test Data";
+  
+  var arrivalCity =
+    req.body.queryResult &&
+    req.body.queryResult.parameters &&
+    req.body.queryResult.parameters.arrivalCity
+      ? req.body.queryResult.parameters.arrivalCity
+      : "Test Data";
+  
+    var startDate =
+    req.body.queryResult &&
+    req.body.queryResult.parameters &&
+    req.body.queryResult.parameters.startDate
+      ? req.body.queryResult.parameters.startDate
+      : "Test Data";
+  
+    var endDate =
+    req.body.queryResult &&
+    req.body.queryResult.parameters &&
+    req.body.queryResult.parameters.endDate
+      ? req.body.queryResult.parameters.endDate
+      : "Test Data";
+  
+  var x = "";
+  if (action == 'book_tickets')
+    x = "Action was successful.";
+    
+  
+  return res.json({
+    fulfillmentText: x
+    /*text: x
+    departingCity: departCity,
+    arrivalCity: arrivalCity,
+    startDate: startDate,
+    endDate: endDate*/
    
   });
 });
