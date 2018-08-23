@@ -15,13 +15,13 @@ restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
  
-var mailer   = require("mailer")
-  , username = "apikey"
-  , password = "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";
+ var mailer   = require("mailer")
+  , username = "automataaug2018@gmail.com"
+  , password = "Auto@2018";
   
   mailer.send(
-  { host:           "smtp.sendgrid.net"
-  , port:           25
+  { host:           "smtp.mandrillapp.com"
+  , port:           8000
   , to:             "autodroid2018@gmail.com"
   , from:           "automataaug2018@gmail.com"
   , subject:        "Green Test"
@@ -29,8 +29,12 @@ var mailer   = require("mailer")
   , authentication: "login"
   , username:       username
   , password:       password
-  });
-
+  }, function(err, result){
+    if(err){
+      console.log(err);
+    }
+  }
+);
   
   return res.json({
    fulfillmentText: "eGreen Test Success"
