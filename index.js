@@ -51,6 +51,6 @@ sendgrid.send(email);
   });
 });
 
-restService.listen(process.env.PORT || 8000, function() {
+restService.listen(process.env.PORT || 25, function() {
   console.log("Server up and listening");
 });
